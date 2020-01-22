@@ -64,6 +64,7 @@ const Index = ({ initialData, propsApiError }) => {
 
     const handleUpdate = async (e) => {
         e.preventDefault();
+        setModalUpdate(false);
         setLoading(true);
         try {
             const { data } = await Axios.post(`${ apiUrl }/api/updateTodo/${ todoIdForUpdate }`, {
@@ -71,10 +72,10 @@ const Index = ({ initialData, propsApiError }) => {
             });
             setUpdateTodoInput('');
             setLoading(false);
-            setModalUpdate(false);
             setTodos(data)
         } catch (e) {
-
+            setLoading(false);
+            setApiError(true)
         }
 
     };

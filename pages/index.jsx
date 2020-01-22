@@ -187,19 +187,11 @@ const Index = ({ initialData, propsApiError }) => {
 };
 
 Index.getInitialProps = async () => {
-    try {
-        const res = await fetch(`${ apiUrl }/api/todos`);
-        const data = await res.json();
-        console.log('data')
-        return {
-            initialData: data,
-            propsApiError: false
-        }
-    } catch (e) {
-        return {
-            initialData: null,
-            propsApiError: true
-        }
+    const res = await fetch(`${ apiUrl }/api/todos`);
+    const data = await res.json();
+    return {
+        initialData: data || [],
+        propsApiError: false
     }
 };
 

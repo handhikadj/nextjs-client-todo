@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import fetch from "isomorphic-unfetch"
 import Typography from '@material-ui/core/Typography';
 import Grid from "@material-ui/core/Grid";
@@ -153,7 +153,7 @@ const Index = ({ initialData, propsApiError }) => {
                                 Server's Occured. Please, Try Again
                             </Typography>
                         ) : todos.length === 0 ? (<EmptyList/>) : todos.map((value, index) =>
-                            <>
+                            <Fragment key={ `parentKey: ${ value.id }` }>
                                 <Grid key={ `yourkey: ${ value.id }` } id={ value.id } container
                                       justify="center"
                                       spacing={ 3 }
@@ -177,7 +177,7 @@ const Index = ({ initialData, propsApiError }) => {
                                 </Grid>
                                 <Divider key={ `mykey: ${ value.id }` }
                                          style={ { width: '100%', marginTop: '15px' } }/>
-                            </>
+                            </Fragment>
                         ) }
                     </Grid>
                 </Grid>

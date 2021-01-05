@@ -10,7 +10,7 @@
   "dependencies": {
     "@material-ui/core": "^4.8.3",
     "@material-ui/icons": "^4.5.1",
-    "axios": "^0.19.1",
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "framer-motion": "^1.7.0",
     "isomorphic-unfetch": "^3.0.0",
